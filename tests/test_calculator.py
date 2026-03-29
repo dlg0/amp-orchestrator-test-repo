@@ -5,7 +5,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
-from calculator import add, subtract, multiply
+import pytest
+
+from calculator import add, subtract, multiply, divide
 
 
 def test_add():
@@ -34,3 +36,16 @@ def test_multiply_negative():
 
 def test_multiply_zero():
     assert multiply(7, 0) == 0
+
+
+def test_divide():
+    assert divide(10, 2) == 5
+
+
+def test_divide_float():
+    assert divide(7, 2) == 3.5
+
+
+def test_divide_by_zero():
+    with pytest.raises(ValueError, match="Cannot divide by zero"):
+        divide(1, 0)
