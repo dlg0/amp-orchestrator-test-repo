@@ -16,6 +16,11 @@ def multiply(a: float, b: float) -> float:
     return a * b
 
 
+def power(base: float, exp: float) -> float:
+    """Return base raised to the power of exp."""
+    return base ** exp
+
+
 def divide(a: float, b: float) -> float:
     """Return the quotient of a and b."""
     if b == 0:
