@@ -5,7 +5,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
-from calculator import add, subtract
+from calculator import add, subtract, multiply
 
 
 def test_add():
@@ -22,3 +22,15 @@ def test_subtract():
 
 def test_subtract_negative():
     assert subtract(3, 7) == -4
+
+
+def test_multiply_positive():
+    assert multiply(3, 4) == 12
+
+
+def test_multiply_negative():
+    assert multiply(-2, 5) == -10
+
+
+def test_multiply_zero():
+    assert multiply(7, 0) == 0
