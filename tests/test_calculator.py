@@ -7,7 +7,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
 import pytest
 
-from calculator import add, subtract, multiply, divide, power
+from calculator import add, subtract, multiply, divide, power, modulo
 
 
 def test_add():
@@ -61,3 +61,16 @@ def test_power_zero_exponent():
 
 def test_power_negative_exponent():
     assert power(2, -1) == 0.5
+
+
+def test_modulo_positive():
+    assert modulo(10, 3) == 1
+
+
+def test_modulo_negative():
+    assert modulo(-10, 3) == 2
+
+
+def test_modulo_by_zero():
+    with pytest.raises(ValueError, match="Cannot modulo by zero"):
+        modulo(10, 0)
